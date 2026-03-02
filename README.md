@@ -168,8 +168,17 @@ As the lab evolved, additional security technologies were explored in dedicated 
 
 These components expand the SOC environment but are documented separately for clarity.
 
----
+## 🔎 Analyst Perspective
 
+This lab was approached from a SOC analyst viewpoint rather than a penetration testing perspective.
+
+Focus areas included:
+- Understanding attacker behavior through logs
+- Investigating alerts step-by-step
+- Validating suspicious activity using multiple data sources
+- Building investigation reasoning instead of tool memorization
+
+---
 ## 📸 Investigation & Lab Evidence
 
 **1. Virtualized Home SOC Lab Environment (local VMs, NAT networking)**
