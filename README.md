@@ -156,15 +156,17 @@ As the lab evolved, additional security technologies were explored in dedicated 
 
 - 🔥 **pfSense Firewall Lab**  
   Network segmentation, firewall rules, and traffic control  
-  👉 (Add repo link)
+  👉 → [View pfSense Lab Repository](https://github.com/rohithbaggu56-dot/pfsense-firewall-lab)
+
 
 - 🛡 **Wazuh SIEM Monitoring Lab**  
   Host-based monitoring and alert visibility  
-  👉 (Add repo link)
+  → [View Wazuh Lab Repository](https://github.com/rohithbaggu56-dot/Wazuh-SIEM-SOC-Hands-On-Lab/blob/main/README.md)
 
-- 🤖 **AI SOC Log Triage (AIRIA AI)**  
+
+- 🤖 **AIRIA AI Log Triage Lab**  
   Experimenting with AI-assisted investigation workflows  
-  👉 (Add repo link)
+   → [View AIRIA AI Lab Repository](https://github.com/rohithbaggu56-dot/AIRIA-AI-Log-Triage-Lab))
 
 These components expand the SOC environment but are documented separately for clarity.
 
