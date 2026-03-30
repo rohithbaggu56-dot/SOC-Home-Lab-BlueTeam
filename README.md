@@ -1,238 +1,153 @@
-# 🏠 Home SOC Lab – Detection, Log Analysis & Network Investigation
-![Splunk](https://img.shields.io/badge/Splunk-SIEM-000000?style=for-the-badge&logo=splunk&logoColor=white)
-![Wazuh](https://img.shields.io/badge/Wazuh-EDR%20%2F%20HIDS-005571?style=for-the-badge&logo=wazuh&logoColor=white)
-![pfSense](https://img.shields.io/badge/pfSense-Firewall-212121?style=for-the-badge&logo=pfsense&logoColor=white)
-![Wireshark](https://img.shields.io/badge/Wireshark-Network_Analysis-1679A7?style=for-the-badge&logo=wireshark&logoColor=white)
-![Windows](https://img.shields.io/badge/Windows_Event_Logs-0078D6?style=for-the-badge&logo=windows&logoColor=white)
-![Linux](https://img.shields.io/badge/Linux_Log_Analysis-333333?style=for-the-badge&logo=linux&logoColor=white)
-![AI Log Analysis](https://img.shields.io/badge/AI-Agent%20Log%20Triage-6A5ACD?style=for-the-badge&logo=openai&logoColor=white)
+# 🏠 SOC Home Lab – Detection, Investigation & Incident Response
 
-A multi-VM Security Operations Center (SOC) home lab built to simulate real-world blue team workflows including log monitoring, alert investigation, network analysis, and threat detection.
+![Wazuh](https://img.shields.io/badge/Wazuh-005DAC?style=for-the-badge&logo=wazuh&logoColor=white)
+![Splunk](https://img.shields.io/badge/Splunk-000000?style=for-the-badge&logo=splunk&logoColor=white)
+![Sysmon](https://img.shields.io/badge/Sysmon-E65100?style=for-the-badge)
+![Wireshark](https://img.shields.io/badge/Wireshark-1679A7?style=for-the-badge&logo=wireshark&logoColor=white)
+![Kali Linux](https://img.shields.io/badge/Kali_Linux-557C94?style=for-the-badge&logo=kalilinux&logoColor=white)
+![MITRE ATT&CK](https://img.shields.io/badge/MITRE_ATT%26CK-FF0000?style=for-the-badge)
 
-This lab focuses on understanding **how attacks appear in logs**, how analysts investigate alerts, and how security tools work together inside a monitored environment.
+A hands-on SOC home lab built across three virtual machines (Windows 10, Ubuntu, Kali Linux) to simulate real blue team workflows. Every project here involves actual attack simulation, live detection, and documented investigation the way a Tier 1 SOC analyst would approach it.
 
 ---
 
-## 🎯 Project Summary
+## 🖥️ Lab Environment
 
-This project demonstrates a self-built SOC environment created using virtual machines and open-source security tools.  
-The lab simulates enterprise-style monitoring where system logs, network traffic, and security events are analyzed to identify suspicious activity.
+| Machine | Role |
+|---|---|
+| Windows 10 | Target endpoint, Sysmon + Wazuh agent, event log analysis |
+| Ubuntu Server | Wazuh manager, log collection, SSH attack target |
+| Kali Linux | Attacker machine, Hydra, Nmap, traffic generation |
 
-The goal was not penetration testing, but **defensive security and SOC analyst skill development**.
-
-
-## 🎯 Project Scope
-
-This lab focuses on:
-
-✅ Detection & monitoring  
-✅ Log investigation  
-✅ Network analysis  
-✅ SOC workflow understanding  
-
-This project does **not** simulate production infrastructure but serves as a controlled learning environment.
-
-
-## 🎯 Objectives
-
-- Build an isolated cybersecurity lab using virtualization
-- Practice Windows and Linux log investigation
-- Perform SOC-style alert triage and analysis
-- Understand attacker behavior through logs and traffic
-- Gain hands-on experience with SIEM and monitoring tools
-- Develop investigation and detection thinking
+All VMs run in an isolated NAT network on a single laptop using VirtualBox.
 
 ---
 
-## 🏗️ Lab Architecture
-<img width="2816" height="1536" alt="Gemini_Generated_Image_9zlyo09zlyo09zly" src="https://github.com/user-attachments/assets/16442680-488c-46d7-84b9-a7e51915e88e" />
-
-The environment consists of multiple virtual machines connected within an isolated network.
-
-### Virtual Machines
-
-- **Ubuntu Server**
-  - Log analysis
-  - Security monitoring
-  - SSH authentication investigation
-
-- **Windows 10**
-  - Event Viewer analysis
-  - Security log monitoring
-  - User activity investigation
-
-- **Kali Linux**
-  - Traffic generation
-  - Network testing scenarios
-  - Security analysis tools
-
-
-## 🛠️ Technologies & Tools Used
-
-### SIEM & Monitoring
-- Splunk (Log ingestion & dashboards)
-- Wazuh (Host-based monitoring – explored separately)
-
-### Network & Traffic Analysis
-- Wireshark
-- TCPDump
-- DNS traffic inspection
-
-### Operating Systems
-- Windows 10
-- Ubuntu Linux
-- Kali Linux
-
-### Network Security
-- pfSense Firewall (network segmentation – dedicated lab)
-
-### AI Security Experimentation
-- AIRIA AI Agent (log triage experimentation – separate project)
-
-
-## 🔎 Skills Practiced
-
-- Log Analysis & Alert Investigation
-- SIEM Monitoring Concepts
-- Network Traffic Analysis
-- Windows Event Log Investigation
-- Linux Authentication Log Analysis
-- Incident Investigation Workflow
-- IOC Identification
-- Security Event Correlation
-
-
-## 🧠 Investigation Workflow Practiced
-
-Typical analysis approach followed in the lab:
-
-1. Generate activity inside lab environment
-2. Collect logs from systems
-3. Search and filter events
-4. Identify suspicious patterns
-5. Extract Indicators of Compromise (IOCs)
-6. Validate findings using multiple data sources
-7. Document investigation results
-
-This workflow mirrors entry-level SOC analyst processes.
-
-
-## 📊 Log Analysis Performed
-
-### Windows Investigation
-- Security Event Log review
-- Login activity monitoring
-- Failed authentication tracking
-- Event correlation using Event IDs
-
-### Linux Investigation
-- SSH authentication logs analysis
-- Failed login detection
-- Brute-force behavior identification
-- Suspicious IP investigation
-
-Example log sources:
-- /var/log/auth.log
-- OpenSSH authentication logs
-- windows Security Logs
-  
-
-## 🌐 Network Traffic Analysis
-
-Network activity was analyzed to understand communication patterns and detect anomalies.
-
-Activities included:
-
-- DNS request/response inspection
-- Packet capture analysis
-- Traffic filtering using Wireshark
-- Identifying unusual connections
-- Understanding attacker footprints in traffic
-
-
-## 🧩 Extended Lab Components
-
-As the lab evolved, additional security technologies were explored in dedicated repositories:
-
-- 🔥 **pfSense Firewall Lab**  
-  Network segmentation, firewall rules, and traffic control  
-  → [View pfSense Lab Repository](https://github.com/rohithbaggu56-dot/pfsense-firewall-lab)
-
-
-- 🛡 **Wazuh SIEM Monitoring Lab**  
-  Host-based monitoring and alert visibility  
-  → [View Wazuh Lab Repository](https://github.com/rohithbaggu56-dot/Wazuh-SIEM-SOC-Hands-On-Lab/blob/main/README.md)
-
-
-- 🤖 **AIRIA AI Log Triage Lab**  
-  Experimenting with AI-assisted investigation workflows  
-   → [View AIRIA AI Lab Repository](https://github.com/rohithbaggu56-dot/AIRIA-AI-Log-Triage-Lab)
-
-These components expand the SOC environment but are documented separately for clarity.
-
-## 🔎 Analyst Perspective
-
-This lab was approached from a SOC analyst viewpoint rather than a penetration testing perspective.
-
-Focus areas included:
-- Understanding attacker behavior through logs
-- Investigating alerts step-by-step
-- Validating suspicious activity using multiple data sources
-- Building investigation reasoning instead of tool memorization
-
----
-## 📸 Investigation & Lab Evidence
-
-**1. Virtualized Home SOC Lab Environment (local VMs, NAT networking)**
-<img width="1920" height="1080" alt="Screenshot 2026-03-02 111835" src="https://github.com/user-attachments/assets/0c801d9a-ac58-430b-a56f-3a5adf110e37" />
-
-
-**2. Windows Event Viewer – Security Event Logs (Windows 10 VM)**
-<img width="1897" height="689" alt="Windows-Event-Viewer" src="https://github.com/user-attachments/assets/dc5c4cb2-2582-453b-aece-2482591ab5b2" />
-
-
-**3. Linux authentication log analysis (OpenSSH)**
-<img width="1910" height="922" alt="Ubuntu-SSH-log analysis" src="https://github.com/user-attachments/assets/decf839d-d7b9-46de-9258-ac9d1bc41660" />
-OpenSSH log file analyzed for practice and investigation purposes.
-
-
-
-**4. Splunk – DNS Log Analysis**
-<img width="1920" height="961" alt="Splunk-Dns log-Search" src="https://github.com/user-attachments/assets/61901e89-5de8-48bc-8273-ee437e07fa6a" />
-
-
-**5. Wireshark – DNS Response Analysis**
-<img width="1903" height="975" alt="Wireshark-Dsn analysis" src="https://github.com/user-attachments/assets/e5ff993d-f406-45d2-92b5-ca0830d61c57" />
-
----
-## 📈 Key Learning Outcomes
-
-- Understood how attacker behavior appears in logs
-- Learned differences between normal vs suspicious activity
-- Practiced SOC investigation methodology
-- Built dashboards for log visibility
-- Improved detection-focused mindset
-- Gained practical blue team experience
-
-
-## 🚀 Future Improvements
-
-- Integrate Wazuh alerts into Splunk
-- Automate alert correlation
-- Expand detection use cases
-- Centralized log pipeline
-- AI-assisted investigation workflows
+## 📂 Projects
 
 ---
 
-## 📌 Key Takeaway
+### 🔴 Wazuh + VirusTotal Active Response Pipeline
 
-Security monitoring is not about tools alone, it is about understanding behavior, patterns, and investigation logic.
+Configured Wazuh to automatically detect and respond to malware using the VirusTotal API.
 
-This lab represents practical steps toward becoming a SOC Analyst by learning **how defenders observe and respond to threats**.
+- Dropped a test malware file onto the Windows machine. Sysmon Event ID 11 caught the file creation, VirusTotal API scanned the hash and returned a positive verdict, and remove-threat.sh automatically deleted the file within 60 seconds
+- Microsoft Edge was triggering T1105 false positive alerts. Wrote a custom suppression rule in local_rules.xml to eliminate the noise without reducing actual detection coverage
+- Configured active response blocks so the pipeline triggers only on confirmed malicious verdicts, not on low-confidence scores
+- 📌 MITRE: `T1105` Ingress Tool Transfer · `T1059` Command & Scripting Interpreter
+
+→ [View Detection Rules](./detection-rules/) · [View Response Script](./scripts/remove-threat.sh)
 
 ---
-🔗 **Navigation**  
+
+### 🔴 SSH & RDP Brute Force Detection
+
+Simulated brute force attacks from Kali Linux against Ubuntu and Windows targets and verified end-to-end detection and blocking.
+
+- Ran Hydra from Kali against Ubuntu SSH. Wazuh triggered on repeated authentication failures and active response blocked the attacker IP automatically
+- Ran Hydra against Windows RDP. Correlated Event IDs 4625 (failed logon) and 4740 (account lockout) in Wazuh to confirm the attack pattern
+- Verified the blocked IP in Wazuh active response logs and confirmed no further connections were accepted from that source
+- 📌 MITRE: `T1110` Brute Force · `T1110.001` Password Guessing · `T1078` Valid Accounts
+
+→ [View Incident Report](./incidents/IR-001-brute-force.md)
+
+---
+
+### 🔴 Sysmon Integration & False Positive Tuning
+
+Deployed Sysmon on Windows 10 with a custom configuration and tuned detection rules to reduce noise while keeping real detections intact.
+
+- Installed Sysmon with a custom XML config to capture process creation (Event ID 1), network connections (Event ID 3), and file drops (Event ID 11)
+- Wazuh was generating false positive T1105 alerts from Microsoft Edge downloading filter list updates. Identified the pattern, wrote a local_rules.xml override to suppress it
+- Validated the fix by confirming Edge no longer triggered alerts while a real file drop still fired correctly
+- 📌 MITRE: `T1105` Ingress Tool Transfer · `T1036` Masquerading
+
+→ [View Detection Rules](./detection-rules/)
+
+---
+
+### 🔴 ModSecurity WAF + DVWA Web Attack Simulation
+
+Set up ModSecurity WAF in front of DVWA and simulated web application attacks to verify WAF blocking behavior.
+
+- Ran SQL injection and XSS payloads against DVWA. ModSecurity blocked each attack and logged the triggered rule ID, payload, and source IP
+- Reviewed WAF logs to confirm which OWASP Core Rule Set rules fired for each attack type
+- 📌 MITRE: `T1190` Exploit Public-Facing Application · `T1059` Command & Scripting Interpreter
+
+→ [View Incident Report](./incidents/IR-002-web-attacks.md)
+
+---
+
+### 🔴 Phishing Analysis
+
+Worked through phishing triage from alert intake to escalation decision using simulated email samples.
+
+- Identified a spoofed sender domain by analyzing email headers. Reply-To and Return-Path did not match the claimed sender address
+- Extracted the embedded URL, confirmed it redirected to a credential harvesting page via VirusTotal and urlscan.io
+- Checked sender IP reputation on AbuseIPDB and confirmed it was flagged as a known malicious source
+- Ran headers through MXToolbox and confirmed SPF and DKIM both failed, indicating a spoofed origin
+- 📌 MITRE: `T1566.001` Spearphishing Attachment · `T1566.002` Spearphishing Link
+
+→ [View Phishing Report](./incidents/IR-003-phishing.md)
+
+---
+
+### 🔴 Splunk Log Analysis & Detection
+
+Ingested Wazuh alert logs into Splunk manually and wrote SPL queries to detect attack patterns across SSH, DNS, and HTTP log sources.
+
+- Wrote SPL to detect SSH brute force: `index=main sourcetype=linux_secure "Failed password" | stats count by src_ip | where count > 10`
+- Identified a source IP generating abnormally high DNS query volume and flagged it as a potential C2 beaconing pattern
+- Built a dashboard tracking failed authentication events across multiple log sources
+- 📌 MITRE: `T1110` Brute Force · `T1071.004` DNS · `T1046` Network Service Scanning
+
+→ [View Splunk Queries & Screenshots](./incidents/IR-004-splunk-detection.md)
+
+---
+
+### 🔴 Log Analysis & Raw Event Investigation
+
+Windows and Linux log analysis focused on reading raw event data and identifying suspicious activity without relying on SIEM alerts.
+
+- Identified repeated Event ID 4625 failures followed by a 4740 account lockout and flagged the sequence as a brute force indicator
+- Went through Linux auth.log manually and identified sudo escalation attempts alongside abnormal SSH login patterns
+- Documented a personal IOC extraction workflow: event ID to log field to indicator to classification
+- 📌 MITRE: `T1110.001` Password Guessing · `T1078` Valid Accounts
+
+→ [View Log Analysis Notes](./incidents/IR-005-log-analysis.md)
+
+---
+
+## 📁 Repository Structure
+
+```
+SOC-Home-Lab/
+├── incidents/
+│   ├── IR-001-brute-force.md
+│   ├── IR-002-web-attacks.md
+│   ├── IR-003-phishing.md
+│   ├── IR-004-splunk-detection.md
+│   └── IR-005-log-analysis.md
+├── detection-rules/
+│   ├── virustotal-active-response-rule.xml
+│   └── sysmon-false-positive-suppression.xml
+├── scripts/
+│   └── remove-threat.sh
+└── dashboards/
+    └── (coming soon — Wazuh dashboard screenshots)
+```
+
+---
+
+## 🔗 Related Repositories
+
+- [Wazuh SIEM Hands-On Lab](https://github.com/rohithbaggu56-dot/Wazuh-SIEM-SOC-Hands-On-Lab/blob/main/README.md)
+- [Phishing Analysis SOC Simulation Lab](https://github.com/rohithbaggu56-dot/Phishing-Analysis-SOC-Simulation-Lab)
+- [Splunk SIEM Practice Notes](https://github.com/rohithbaggu56-dot/Splunk-SIEM-Practice-Notes/blob/main/README.md)
+- [Log Analysis & Detection Notes](https://github.com/rohithbaggu56-dot/Log-Analysis-Detection-Notes)
+- [Incident Investigation Report](https://github.com/rohithbaggu56-dot/Incident-Investigation-Report)
+- [pfSense Firewall Lab](https://github.com/rohithbaggu56-dot/pfsense-firewall-lab)
+
+---
+
 ⬅️ [Back to Portfolio](https://github.com/rohithbaggu56-dot)
----
-
