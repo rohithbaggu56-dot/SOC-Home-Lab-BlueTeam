@@ -10,7 +10,10 @@
 A hands-on SOC home lab built across three virtual machines (Windows 10, Ubuntu, Kali Linux) to simulate real blue team workflows. Every project here involves actual attack simulation, live detection, and documented investigation the way a Tier 1 SOC analyst would approach it.
 
 ---
+<img width="1671" height="2376" alt="Home-Lab-Structure" src="https://github.com/user-attachments/assets/80c96319-bf7a-4d15-8c63-2d11e3205f48" />
 
+
+---
 ## 🖥️ Lab Environment
 
 | Machine | Role |
@@ -34,8 +37,7 @@ Configured Wazuh to automatically detect and respond to malware using the VirusT
 - Dropped a test malware file onto the Windows machine. Sysmon Event ID 11 caught the file creation, VirusTotal API scanned the hash and returned a positive verdict, and remove-threat.sh automatically deleted the file within 60 seconds
 - Microsoft Edge was triggering T1105 false positive alerts. Wrote a custom suppression rule in local_rules.xml to eliminate the noise without reducing actual detection coverage
 - Configured active response blocks so the pipeline triggers only on confirmed malicious verdicts, not on low-confidence scores
-- 📌 MITRE: `T1105` Ingress Tool Transfer · `T1059` Command & Scripting Interpreter
-
+- 📌 MITRE: `T1105` Ingress Tool Transfer · `T1070.004` File Deletion · `T1565.001` Stored Data Manipulation
 → [View Detection Rules](./detection-rules/) · [View Response Script](./scripts/remove-threat.sh)
 
 ---
@@ -136,17 +138,6 @@ SOC-Home-Lab/
 └── dashboards/
     └── (coming soon — Wazuh dashboard screenshots)
 ```
-
----
-
-## 🔗 Related Repositories
-
-- [Wazuh SIEM Hands-On Lab](https://github.com/rohithbaggu56-dot/Wazuh-SIEM-SOC-Hands-On-Lab/blob/main/README.md)
-- [Phishing Analysis SOC Simulation Lab](https://github.com/rohithbaggu56-dot/Phishing-Analysis-SOC-Simulation-Lab)
-- [Splunk SIEM Practice Notes](https://github.com/rohithbaggu56-dot/Splunk-SIEM-Practice-Notes/blob/main/README.md)
-- [Log Analysis & Detection Notes](https://github.com/rohithbaggu56-dot/Log-Analysis-Detection-Notes)
-- [Incident Investigation Report](https://github.com/rohithbaggu56-dot/Incident-Investigation-Report)
-- [pfSense Firewall Lab](https://github.com/rohithbaggu56-dot/pfsense-firewall-lab)
 
 ---
 
