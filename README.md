@@ -107,6 +107,19 @@ Ingested Wazuh alert logs into Splunk manually and wrote SPL queries to detect a
 
 ---
 
+### 🔴 pfSense Firewall – Network Segmentation & Traffic Control
+
+Deployed pfSense as the network gateway controlling all traffic between lab VMs. Configured firewall rules, verified blocking behavior, and analyzed logs showing real blocked connection attempts.
+
+- Configured LAN firewall rules and applied a block rule for the Kali attacker machine. Ping test confirmed 100% packet loss after rule was applied
+- Reviewed firewall logs showing 170 blocked attempts from 192.168.1.101 targeting both external DNS and Wazuh manager port 1514
+- Identified the blocked TCP traffic was targeting port 1514, the Wazuh agent communication port
+- 📌 MITRE: `T1046` Network Service Scanning · `T1562.004` Disable or Modify System Firewall
+
+→ [View pfSense Firewall Lab](https://github.com/rohithbaggu56-dot/pfsense-firewall-lab)
+
+---
+
 ### 🔴 Log Analysis & Raw Event Investigation
 
 Windows and Linux log analysis focused on reading raw event data and identifying suspicious activity without relying on SIEM alerts.
