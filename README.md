@@ -38,8 +38,7 @@ Configured Wazuh to automatically detect and respond to malware using the VirusT
 - Microsoft Edge was triggering T1105 false positive alerts. Wrote a custom suppression rule in local_rules.xml to eliminate the noise without reducing actual detection coverage
 - Configured active response blocks so the pipeline triggers only on confirmed malicious verdicts, not on low-confidence scores
 - 📌 MITRE: `T1105` Ingress Tool Transfer · `T1070.004` File Deletion · `T1565.001` Stored Data Manipulation
-→ [View Detection Rules](./detection-rules/) · [View Response Script](./scripts/remove-threat.sh)
-
+→ [View Full Wazuh Lab](https://github.com/rohithbaggu56-dot/Wazuh-SIEM-SOC-Hands-On-Lab/blob/main/README.md)
 ---
 
 ### 🔴 SSH & RDP Brute Force Detection
@@ -51,8 +50,7 @@ Simulated brute force attacks from Kali Linux against Ubuntu and Windows targets
 - Verified the blocked IP in Wazuh active response logs and confirmed no further connections were accepted from that source
 - 📌 MITRE: `T1110` Brute Force · `T1110.001` Password Guessing · `T1078` Valid Accounts
 
-→ [View Incident Report](./incidents/IR-001-brute-force.md)
-
+→ [View Incident Investigation Report](https://github.com/rohithbaggu56-dot/Incident-Investigation-Report)
 ---
 
 ### 🔴 Sysmon Integration & False Positive Tuning
@@ -64,8 +62,7 @@ Deployed Sysmon on Windows 10 with a custom configuration and tuned detection ru
 - Validated the fix by confirming Edge no longer triggered alerts while a real file drop still fired correctly
 - 📌 MITRE: `T1105` Ingress Tool Transfer · `T1036` Masquerading
 
-→ [View Detection Rules](./detection-rules/)
-
+→ [View Full Wazuh Lab](https://github.com/rohithbaggu56-dot/Wazuh-SIEM-SOC-Hands-On-Lab/blob/main/README.md)
 ---
 
 ### 🔴 ModSecurity WAF + DVWA Web Attack Simulation
@@ -90,7 +87,7 @@ Worked through phishing triage from alert intake to escalation decision using si
 - Ran headers through MXToolbox and confirmed SPF and DKIM both failed, indicating a spoofed origin
 - 📌 MITRE: `T1566.001` Spearphishing Attachment · `T1566.002` Spearphishing Link
 
-→ [View Phishing Report](./incidents/IR-003-phishing.md)
+→ [View Phishing Report](https://github.com/rohithbaggu56-dot/Phishing-Analysis)
 
 ---
 
@@ -103,8 +100,7 @@ Ingested Wazuh alert logs into Splunk manually and wrote SPL queries to detect a
 - Built a dashboard tracking failed authentication events across multiple log sources
 - 📌 MITRE: `T1110` Brute Force · `T1071.004` DNS · `T1046` Network Service Scanning
 
-→ [View Splunk Queries & Screenshots](./incidents/IR-004-splunk-detection.md)
-
+→ [View Splunk Lab](https://github.com/rohithbaggu56-dot/Splunk-SIEM-Practice-Notes/blob/main/README.md)
 ---
 
 ### 🔴 pfSense Firewall – Network Segmentation & Traffic Control
@@ -117,7 +113,6 @@ Deployed pfSense as the network gateway controlling all traffic between lab VMs.
 - 📌 MITRE: `T1046` Network Service Scanning · `T1562.004` Disable or Modify System Firewall
 
 → [View pfSense Firewall Lab](https://github.com/rohithbaggu56-dot/pfsense-firewall-lab)
-
 ---
 
 ### 🔴 Log Analysis & Raw Event Investigation
@@ -129,7 +124,18 @@ Windows and Linux log analysis focused on reading raw event data and identifying
 - Documented a personal IOC extraction workflow: event ID to log field to indicator to classification
 - 📌 MITRE: `T1110.001` Password Guessing · `T1078` Valid Accounts
 
-→ [View Log Analysis Notes](./incidents/IR-005-log-analysis.md)
+→ [View Log Analysis Lab](https://github.com/rohithbaggu56-dot/Log-Analysis-Detection-Notes)
+---
+
+### 🔴 AI-Assisted SOC Triage Pipeline
+
+Followed and implemented a Python automation pipeline simulating a basic SOAR-style workflow — capturing live traffic, detecting suspicious IPs, generating structured JSON alerts, and routing them to a published AI agent for automated triage.
+
+- Implemented tshark packet capture, CSV conversion, IP threshold analysis, and JSON alert generation in a five-stage Python pipeline
+- Configured and published an Airia AI agent trained on a custom SOC playbook with risk scoring, MITRE mapping, and escalation logic
+- Pipeline successfully detected 70 ICMP packets from attacker IP, generated alert SOC-CC95AA8A, and received structured triage response with HTTP 200
+
+→ [View AI SOC Triage Pipeline Lab](https://github.com/rohithbaggu56-dot/AIRIA-AI-Log-Triage-Lab)
 
 ---
 
