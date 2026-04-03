@@ -147,25 +147,4 @@ Followed and implemented a Python automation pipeline simulating a basic SOAR-st
 
 ---
 
-## 📁 Repository Structure
-
-```
-SOC-Home-Lab/
-├── incidents/
-│   ├── IR-001-brute-force.md
-│   ├── IR-002-web-attacks.md
-│   ├── IR-003-phishing.md
-│   ├── IR-004-splunk-detection.md
-│   └── IR-005-log-analysis.md
-├── detection-rules/
-│   ├── virustotal-active-response-rule.xml
-│   └── sysmon-false-positive-suppression.xml
-├── scripts/
-│   └── remove-threat.sh
-└── dashboards/
-    └── (coming soon — Wazuh dashboard screenshots)
-```
-
----
-
 ⬅️ [Back to Portfolio](https://github.com/rohithbaggu56-dot)
