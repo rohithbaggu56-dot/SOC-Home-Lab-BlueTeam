@@ -10,10 +10,11 @@
 A hands-on SOC home lab built across three virtual machines (Windows 10, Ubuntu, Kali Linux) to simulate real blue team workflows. Every project here involves actual attack simulation, live detection, and documented investigation the way a Tier 1 SOC analyst would approach it.
 
 ---
+
 <img width="1671" height="2376" alt="Home-Lab-Structure" src="https://github.com/user-attachments/assets/80c96319-bf7a-4d15-8c63-2d11e3205f48" />
 
-
 ---
+
 ## 🖥️ Lab Environment
 
 | Machine | Role |
@@ -38,7 +39,9 @@ Configured Wazuh to automatically detect and respond to malware using the VirusT
 - Microsoft Edge was triggering T1105 false positive alerts. Wrote a custom suppression rule in local_rules.xml to eliminate the noise without reducing actual detection coverage
 - Configured active response blocks so the pipeline triggers only on confirmed malicious verdicts, not on low-confidence scores
 - 📌 MITRE: `T1105` Ingress Tool Transfer · `T1070.004` File Deletion · `T1565.001` Stored Data Manipulation
-→ [View Full Wazuh Lab](https://github.com/rohithbaggu56-dot/Wazuh-SIEM-SOC-Hands-On-Lab/blob/main/README.md)
+
+→ [View Lab](https://github.com/rohithbaggu56-dot/Wazuh-SIEM-SOC-Hands-On-Lab/blob/main/README.md)
+
 ---
 
 ### 🔴 SSH & RDP Brute Force Detection
@@ -50,7 +53,8 @@ Simulated brute force attacks from Kali Linux against Ubuntu and Windows targets
 - Verified the blocked IP in Wazuh active response logs and confirmed no further connections were accepted from that source
 - 📌 MITRE: `T1110` Brute Force · `T1110.001` Password Guessing · `T1078` Valid Accounts
 
-→ [View Incident Investigation Report](https://github.com/rohithbaggu56-dot/Incident-Investigation-Report)
+→ [View Lab](https://github.com/rohithbaggu56-dot/Incident-Investigation-Report)
+
 ---
 
 ### 🔴 Sysmon Integration & False Positive Tuning
@@ -60,9 +64,10 @@ Deployed Sysmon on Windows 10 with a custom configuration and tuned detection ru
 - Installed Sysmon with a custom XML config to capture process creation (Event ID 1), network connections (Event ID 3), and file drops (Event ID 11)
 - Wazuh was generating false positive T1105 alerts from Microsoft Edge downloading filter list updates. Identified the pattern, wrote a local_rules.xml override to suppress it
 - Validated the fix by confirming Edge no longer triggered alerts while a real file drop still fired correctly
-- 📌 MITRE: `T1105` Ingress Tool Transfer · `T1036` Masquerading
+- 📌 MITRE: `T1105` Ingress Tool Transfer · `T1036` Masquerading. 
 
-→ [View Full Wazuh Lab](https://github.com/rohithbaggu56-dot/Wazuh-SIEM-SOC-Hands-On-Lab/blob/main/README.md)
+→ [View Sysmon + Wazuh Lab](https://github.com/rohithbaggu56-dot/Wazuh-SIEM-SOC-Hands-On-Lab/blob/main/README.md) *(Sysmon is integrated within the Wazuh lab – detection rules and false positive tuning documented there)*
+
 ---
 
 ### 🔴 ModSecurity WAF + DVWA Web Attack Simulation
@@ -73,7 +78,7 @@ Set up ModSecurity WAF in front of DVWA and simulated web application attacks to
 - Reviewed WAF logs to confirm which OWASP Core Rule Set rules fired for each attack type
 - 📌 MITRE: `T1190` Exploit Public-Facing Application · `T1059` Command & Scripting Interpreter
 
-→ [View Incident Report](./incidents/IR-002-web-attacks.md)
+*(ModSecurity WAF is part of the core SOC lab environment – findings documented in the SOC Home Lab repo)*
 
 ---
 
@@ -87,7 +92,7 @@ Worked through phishing triage from alert intake to escalation decision using si
 - Ran headers through MXToolbox and confirmed SPF and DKIM both failed, indicating a spoofed origin
 - 📌 MITRE: `T1566.001` Spearphishing Attachment · `T1566.002` Spearphishing Link
 
-→ [View Phishing Report](https://github.com/rohithbaggu56-dot/Phishing-Analysis)
+→ [View Lab](https://github.com/rohithbaggu56-dot/Phishing-Analysis-SOC-Simulation-Lab)
 
 ---
 
@@ -100,7 +105,8 @@ Ingested Wazuh alert logs into Splunk manually and wrote SPL queries to detect a
 - Built a dashboard tracking failed authentication events across multiple log sources
 - 📌 MITRE: `T1110` Brute Force · `T1071.004` DNS · `T1046` Network Service Scanning
 
-→ [View Splunk Lab](https://github.com/rohithbaggu56-dot/Splunk-SIEM-Practice-Notes/blob/main/README.md)
+→ [View Lab](https://github.com/rohithbaggu56-dot/Splunk-SIEM-Practice-Notes/blob/main/README.md)
+
 ---
 
 ### 🔴 pfSense Firewall – Network Segmentation & Traffic Control
@@ -112,7 +118,8 @@ Deployed pfSense as the network gateway controlling all traffic between lab VMs.
 - Identified the blocked TCP traffic was targeting port 1514, the Wazuh agent communication port
 - 📌 MITRE: `T1046` Network Service Scanning · `T1562.004` Disable or Modify System Firewall
 
-→ [View pfSense Firewall Lab](https://github.com/rohithbaggu56-dot/pfsense-firewall-lab)
+→ [View Lab](https://github.com/rohithbaggu56-dot/pfsense-firewall-lab)
+
 ---
 
 ### 🔴 Log Analysis & Raw Event Investigation
@@ -124,7 +131,8 @@ Windows and Linux log analysis focused on reading raw event data and identifying
 - Documented a personal IOC extraction workflow: event ID to log field to indicator to classification
 - 📌 MITRE: `T1110.001` Password Guessing · `T1078` Valid Accounts
 
-→ [View Log Analysis Lab](https://github.com/rohithbaggu56-dot/Log-Analysis-Detection-Notes)
+→ [View Lab](https://github.com/rohithbaggu56-dot/Log-Analysis-Detection-Notes)
+
 ---
 
 ### 🔴 AI-Assisted SOC Triage Pipeline
@@ -135,7 +143,7 @@ Followed and implemented a Python automation pipeline simulating a basic SOAR-st
 - Configured and published an Airia AI agent trained on a custom SOC playbook with risk scoring, MITRE mapping, and escalation logic
 - Pipeline successfully detected 70 ICMP packets from attacker IP, generated alert SOC-CC95AA8A, and received structured triage response with HTTP 200
 
-→ [View AI SOC Triage Pipeline Lab](https://github.com/rohithbaggu56-dot/AIRIA-AI-Log-Triage-Lab)
+→ [View Lab](https://github.com/rohithbaggu56-dot/AIRIA-AI-Log-Triage-Lab)
 
 ---
 
